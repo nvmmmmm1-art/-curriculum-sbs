@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국제 IT 자격증 안내 브리핑</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@400;600;700&display=swap');
+
+  :root {
+    --ink:       #1c2333;
+    --ink-mid:   #3a4560;
+    --ink-sub:   #5c6880;
+    --ink-muted: #8a94aa;
+    --rule:      #dde2ec;
+    --surface:   #f6f8fc;
+    --white:     #ffffff;
+    --accent:    #2c4a8a;
+    --accent-lt: #e8edf8;
+    --gold:      #8a6b2a;
+    --gold-lt:   #f5f0e6;
+
+    --mos-ink:   #1a5c35;
+    --mos-bg:    #f0f8f3;
+    --mos-rule:  #b8d8c4;
+    --acp-ink:   #9e1e0d;
+    --acp-bg:    #fdf2f0;
+    --acp-rule:  #e8bdb6;
+    --ai-ink:    #3d2494;
+    --ai-bg:     #f2f0fc;
+    --ai-rule:   #c4bae8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #e8eaf0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 32px 16px 72px;
+    gap: 24px;
+  }
+
+  .slide-label {
+    color: #8a94aa;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    align-self: flex-start;
+    padding-left: 4px;
+  }
+
+  .slide {
+    width: 960px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0,0,0,.10), 0 1px 4px rgba(0,0,0,.06);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+  }
+
+  /* ─ 공통 헤더 ─ */
+  .slide-top-bar {
+    height: 4px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .slide-footer {
+    border-top: 1px solid var(--rule);
+    padding: 10px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+  }
+  .slide-footer span {
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: .04em;
+  }
+
+  /* ══════════════════════════════
+     SLIDE 1 — COVER
+  ══════════════════════════════ */
+  .s1-body {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    min-height: 520px;
+  }
+  .s1-left {
+    width: 60px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .s1-content {
+    flex: 1;
+    padding: 72px 64px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .s1-doc-type {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .s1-doc-type::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--ink-muted);
+  }
+  .s1-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.35;
+    margin-bottom: 20px;
+    letter-spacing: -.02em;
+  }
+  .s1-subtitle {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--ink-sub);
+    line-height: 1.8;
+    max-width: 480px;
+    border-left: 2px solid var(--rule);
+    padding-left: 18px;
+    margin-bottom: 52px;
+  }
+  .s1-meta {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    width: fit-content;
+  }
+  .s1-meta-item {
+    padding: 14px 28px;
+    border-right: 1px solid var(--rule);
+  }
+  .s1-meta-item:last-child { border-right: none; }
+  .s1-meta-item .label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+  .s1-meta-item .value {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* ══════════════════════════════
+     SLIDE 2 — 자격증 개요
+  ══════════════════════════════ */
+  .s2-body {
+    flex: 1;
+    padding: 52px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-height: 520px;
+  }
+  .section-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -.01em;
+  }
+  .divider {
+    width: 32px;
+    height: 2px;
+    background: var(--accent);
+    margin-top: 12px;
+  }
+
+  .cert-overview-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4px;
+  }
+  .cert-overview-table thead tr {
+    background: var(--surface);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .cert-overview-table thead th {
+    padding: 10px 20px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-align: left;
+  }
+  .cert-overview-table tbody tr {
+    border-bottom: 1px solid var(--rule);
+  }
+  .cert-overview-table tbody td {
+    padding: 16px 20px;
+    font-size: 13.5px;
+    color: var(--ink-sub);
+    vertical-align: middle;
+    line-height: 1.5;
+  }
+  .cert-overview-table tbody td:first-child {
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .cert-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 9px;
+    border-radius: 2px;
+    letter-spacing: .02em;
+  }
+  .tag-mos { background: var(--mos-bg); color: var(--mos-ink); border: 1px solid var(--mos-rule); }
+  .tag-acp { background: var(--acp-bg); color: var(--acp-ink); border: 1px solid var(--acp-rule); }
+  .tag-ai  { background: var(--ai-bg);  color: var(--ai-ink);  border: 1px solid var(--ai-rule); }
+
+  .overview-note {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--ink-sub);
+    line-height: 1.75;
+  }
+  .overview-note strong { color: var(--ink); font-weight: 600; }
+
+  /* ══════════════════════════════
+     CERT DETAIL SLIDES (4~6)
+  ══════════════════════════════ */
+  .cert-body {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    min-height: 520px;
+  }
+  .cert-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-right: 1px solid var(--rule);
+    background: var(--surface);
+  }
+  .cert-sidebar.mos { border-left: 4px solid var(--mos-ink); }
+  .cert-sidebar.acp { border-left: 4px solid var(--acp-ink); }
+  .cert-sidebar.ai  { border-left: 4px solid var(--ai-ink); }
+
+  .cert-abbr {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    padding: 3px 8px;
+    border-radius: 2px;
+    display: inline-block;
+    width: fit-content;
+    color: #fff;
+  }
+  .cert-abbr.mos { background: var(--mos-ink); }
+  .cert-abbr.acp { background: var(--acp-ink); }
+  .cert-abbr.ai  { background: var(--ai-ink); }
+
+  .cert-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .cert-issuer-label {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 2px;
+  }
+  .cert-issuer-value {
+    font-size: 13px;
+    color: var(--ink-sub);
+    line-height: 1.5;
+  }
+
+  .cert-stat-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cert-stat {
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+  }
+  .cert-stat .stat-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 3px;
+  }
+  .cert-stat .stat-value {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .cert-detail {
+    flex: 1;
+    padding: 48px 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .detail-section h4 {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--ink-sub);
+    line-height: 1.6;
+  }
+  .detail-item::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+  .detail-item.mos::before { background: var(--mos-ink); }
+  .detail-item.acp::before { background: var(--acp-ink); }
+  .detail-item.ai::before  { background: var(--ai-ink); }
+  .detail-item strong { color: var(--ink); font-weight: 600; }
+
+  .detail-note {
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--ink-sub);
+    line-height: 1.8;
+    background: var(--surface);
+  }
+  .detail-note strong { color: var(--ink); font-weight: 600; }
+
+  /* ══════════════════════════════
+     SLIDE 7 — 취득 일정
+  ══════════════════════════════ */
+  .s7-body {
+    flex: 1;
+    padding: 52px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    min-height: 520px;
+  }
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .schedule-table thead tr {
+    background: var(--ink);
+  }
+  .schedule-table thead th {
+    padding: 12px 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+    text-align: left;
+  }
+  .schedule-table tbody tr {
+    border-bottom: 1px solid var(--rule);
+  }
+  .schedule-table tbody tr:last-child { border-bottom: none; }
+  .schedule-table tbody td {
+    padding: 16px 20px;
+    font-size: 13.5px;
+    color: var(--ink-sub);
+    vertical-align: middle;
+    line-height: 1.55;
+  }
+  .schedule-table tbody td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+    width: 100px;
+    white-space: nowrap;
+  }
+  .schedule-table tbody td:nth-child(2) {
+    width: 120px;
+  }
+  .schedule-row-1 { background: var(--mos-bg); }
+  .schedule-row-2 { background: var(--acp-bg); }
+  .schedule-row-3 { background: var(--ai-bg); }
+  .schedule-row-4 { background: var(--surface); }
+
+  .progress-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--rule);
+    width: 100%;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 3px;
+  }
+  .fill-mos { background: var(--mos-ink); width: 50%; }
+  .fill-acp { background: var(--acp-ink); width: 75%; }
+  .fill-ai  { background: var(--ai-ink);  width: 100%; }
+  .fill-all { background: var(--accent);  width: 100%; }
+
+  /* ══════════════════════════════
+     SLIDE 8 — 마무리 / Q&A
+  ══════════════════════════════ */
+  .s8-body {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    min-height: 520px;
+  }
+  .s8-main {
+    flex: 1;
+    padding: 52px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .summary-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .summary-item {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--rule);
+  }
+  .summary-item:last-child { border-bottom: none; }
+  .summary-num {
+    width: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: rgba(255,255,255,.9);
+    background: var(--accent);
+    flex-shrink: 0;
+    font-family: 'Noto Serif KR', serif;
+  }
+  .summary-text {
+    padding: 18px 22px;
+    flex: 1;
+  }
+  .summary-text h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .summary-text p {
+    font-size: 13px;
+    color: var(--ink-sub);
+    line-height: 1.65;
+  }
+
+  .s8-aside {
+    width: 260px;
+    flex-shrink: 0;
+    border-left: 1px solid var(--rule);
+    background: var(--surface);
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+  .aside-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+  .aside-cert-row {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .aside-cert-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .aside-cert-desc {
+    font-size: 12px;
+    color: var(--ink-sub);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1000px) {
+    .slide { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── SLIDE 1 : COVER ─── -->
+<div class="slide-label">01 / 08</div>
+<div class="slide">
+  <div class="slide-top-bar"></div>
+  <div class="s1-body">
+    <div class="s1-left"></div>
+    <div class="s1-content">
+      <div>
+        <div class="s1-doc-type">국제 자격증 안내 자료</div>
+        <h1 class="s1-title">국제 IT 자격증 현황 및<br>취득 방향 안내</h1>
+        <p class="s1-subtitle">
+          해외 유학 중인 자녀분의 귀국 기간을 활용한<br>
+          국제 공인 자격증 취득 과정을 안내드립니다.<br>
+          MOS · ACP · AIPOT 3종 자격증의 개요와<br>
+          해외 적용 현황을 중심으로 설명드립니다.
+        </p>
+      </div>
+      <div class="s1-meta">
+        <div class="s1-meta-item">
+          <div class="label">대상 자격증</div>
+          <div class="value">MOS · ACP · AIPOT</div>
+        </div>
+        <div class="s1-meta-item">
+          <div class="label">취득 예상 기간</div>
+          <div class="value">약 8주 (2개월)</div>
+        </div>
+        <div class="s1-meta-item">
+          <div class="label">국제 통용 여부</div>
+          <div class="value">170개국 이상 인정</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>국제 자격증 안내 브리핑</span>
+    <span>1 / 8</span>
+  </div>
+</div>
+
+<!-- ─── SLIDE 2 : 자격증 개요 ─── -->
+<div class="slide-label">02 / 08</div>
+<div class="slide">
+  <div class="slide-top-bar"></div>
+  <div class="s2-body">
+    <div>
+      <div class="section-eyebrow">Overview</div>
+      <div class="section-title">자격증 3종 기본 현황</div>
+      <div class="divider"></div>
+    </div>
+    <table class="cert-overview-table">
+      <thead>
+        <tr>
+          <th>자격증명</th>
+          <th>발급기관</th>
+          <th>주요 분야</th>
+          <th>국제 통용 범위</th>
+          <th>취득 소요 기간</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="cert-tag tag-mos">MOS</span>&ensp;Microsoft Office Specialist</td>
+          <td>Microsoft (미국)</td>
+          <td>업무 생산성 / 사무 자동화</td>
+          <td>170개국 이상</td>
+          <td>2~3주 (집중 시)</td>
+        </tr>
+        <tr>
+          <td><span class="cert-tag tag-acp">ACP</span>&ensp;Adobe Certified Professional</td>
+          <td>Adobe Inc. (미국)</td>
+          <td>디자인 / 미디어 / 콘텐츠</td>
+          <td>미주·유럽·아시아 전역</td>
+          <td>2~3주 (집중 시)</td>
+        </tr>
+        <tr>
+          <td><span class="cert-tag tag-ai">AIPOT</span>&ensp;AI Professional Operator Test</td>
+          <td>국제 AI 인증기관</td>
+          <td>AI 활용 / 디지털 전환</td>
+          <td>글로벌 기업 및 기관 인정</td>
+          <td>2~3주 (집중 시)</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="overview-note">
+      세 자격증 모두 <strong>국내 응시 비용이 해외 대비 40~60% 수준</strong>으로, 귀국 기간 중 국내에서 응시하는 것이 경제적입니다.
+      또한 자격증은 <strong>취득 후 별도 갱신 없이 이력서에 영구 기재</strong>가 가능합니다.
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>국제 자격증 안내 브리핑</span>
+    <span>2 / 8</span>
+  </div>
+</div>
+
+<!-- ─── SLIDE 3 : MOS ─── -->
+<div class="slide-label">03 / 08</div>
+<div class="slide">
+  <div class="slide-top-bar" style="background: var(--mos-ink);"></div>
+  <div class="cert-body">
+    <div class="cert-sidebar mos">
+      <div>
+        <span class="cert-abbr mos">MOS</span>
+        <div class="cert-name" style="margin-top:10px;">Microsoft Office<br>Specialist</div>
+      </div>
+      <div>
+        <div class="cert-issuer-label">발급기관</div>
+        <div class="cert-issuer-value">Microsoft Corporation<br>(미국 워싱턴주 본사)</div>
+      </div>
+      <div class="cert-stat-block">
+        <div class="cert-stat">
+          <div class="stat-label">국제 통용 범위</div>
+          <div class="stat-value">170개국 이상</div>
+        </div>
+        <div class="cert-stat">
+          <div class="stat-label">시험 과목</div>
+          <div class="stat-value">Word / Excel / PPT 등</div>
+        </div>
+        <div class="cert-stat">
+          <div class="stat-label">유효 기간</div>
+          <div class="stat-value">영구 (갱신 불필요)</div>
+        </div>
+      </div>
+    </div>
+    <div class="cert-detail">
+      <div>
+        <div class="section-eyebrow">MOS — Certification Detail</div>
+        <div class="section-title" style="font-size:20px;">해외에서의 위상과 활용</div>
+      </div>
+      <div class="detail-section">
+        <h4>국제 인정 현황</h4>
+        <div class="detail-grid">
+          <div class="detail-item mos">미국·유럽 기업 채용 공고에서 <strong>우대 조건으로 공식 명시</strong></div>
+          <div class="detail-item mos">해외 대학교 일부에서 <strong>학점 또는 장학 요건</strong>으로 인정</div>
+          <div class="detail-item mos">외국계 기업·글로벌 기업 지원 시 <strong>서류 신뢰도 향상</strong></div>
+          <div class="detail-item mos">국내외 <strong>170개국 이상의 기업·기관</strong>에서 공식 인증 효력 인정</div>
+        </div>
+      </div>
+      <div class="detail-section">
+        <h4>자격증 취득의 실질적 의미</h4>
+        <div class="detail-grid">
+          <div class="detail-item mos">Word·Excel·PowerPoint 활용 역량을 <strong>마이크로소프트가 직접 공인</strong></div>
+          <div class="detail-item mos">이력서 및 LinkedIn 프로필에 <strong>공식 배지 표시</strong> 가능</div>
+          <div class="detail-item mos">어느 나라에서 근무하든 사무 도구는 동일 — <strong>범용적 활용 가능</strong></div>
+          <div class="detail-item mos">해외 인턴십·취업 지원 시 <strong>기본 업무 역량 입증 수단</strong></div>
+        </div>
+      </div>
+      <div class="detail-note">
+        Microsoft Office는 전 세계 약 12억 명이 사용하는 표준 업무 도구입니다. MOS는 그 활용 역량을 <strong>발급 기업 본사가 직접 인증</strong>한다는 점에서 신뢰도가 높으며, 업종에 무관하게 범용적으로 적용됩니다.
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>국제 자격증 안내 브리핑</span>
+    <span>3 / 8</span>
+  </div>
+</div>
+
+<!-- ─── SLIDE 4 : ACP ─── -->
+<div class="slide-label">04 / 08</div>
+<div class="slide">
+  <div class="slide-top-bar" style="background: var(--acp-ink);"></div>
+  <div class="cert-body">
+    <div class="cert-sidebar acp">
+      <div>
+        <span class="cert-abbr acp">ACP</span>
+        <div class="cert-name" style="margin-top:10px;">Adobe Certified<br>Professional</div>
+      </div>
+      <div>
+        <div class="cert-issuer-label">발급기관</div>
+        <div class="cert-issuer-value">Adobe Inc.<br>(미국 캘리포니아 본사)</div>
+      </div>
+      <div class="cert-stat-block">
+        <div class="cert-stat">
+          <div class="stat-label">주요 적용 분야</div>
+          <div class="stat-value">디자인·마케팅·영상</div>
+        </div>
+        <div class="cert-stat">
+          <div class="stat-label">시험 과목</div>
+          <div class="stat-value">Photoshop / Illustrator 등</div>
+        </div>
+        <div class="cert-stat">
+          <div class="stat-label">유효 기간</div>
+          <div class="stat-value">영구 (갱신 불필요)</div>
+        </div>
+      </div>
+    </div>
+    <div class="cert-detail">
+      <div>
+        <div class="section-eyebrow">ACP — Certification Detail</div>
+        <div class="section-title" style="font-size:20px;">해외에서의 위상과 활용</div>
+      </div>
+      <div class="detail-section">
+        <h4>국제 인정 현황</h4>
+        <div class="detail-grid">
+          <div class="detail-item acp">미국·유럽 크리에이티브 업계에서 <strong>채용 기준 자격 요건</strong>으로 명시</div>
+          <div class="detail-item acp">해외 프리랜서 플랫폼(Upwork 등)에서 <strong>공식 인증 배지 표시</strong> 가능</div>
+          <div class="detail-item acp">마케팅·콘텐츠·영상 등 <strong>크리에이티브 직종 전반에 통용</strong></div>
+          <div class="detail-item acp">포트폴리오 제출 시 Adobe 공식 인증으로 <strong>역량 신뢰도 제고</strong></div>
+        </div>
+      </div>
+      <div class="detail-section">
+        <h4>자격증 취득의 실질적 의미</h4>
+        <div class="detail-grid">
+          <div class="detail-item acp">Photoshop·Illustrator·Premiere 등 <strong>Adobe 툴 공인 숙련도 증명</strong></div>
+          <div class="detail-item acp">SNS·유튜브 콘텐츠 제작 역량을 <strong>공식 자격으로 전환</strong></div>
+          <div class="detail-item acp">해외 취업뿐 아니라 <strong>프리랜서 활동 시 계약 신뢰도</strong>에 직접 기여</div>
+          <div class="detail-item acp">디자인 소프트웨어 세계 1위 기업의 <strong>직접 발급 인증서</strong></div>
+        </div>
+      </div>
+      <div class="detail-note">
+        Adobe 제품군은 전 세계 크리에이티브 산업의 표준 도구입니다. ACP는 단순 수강 이수증이 아니라 <strong>Adobe 본사가 역량을 직접 검증한 공인 자격</strong>으로, 특히 미디어·콘텐츠 분야 해외 취업 시 실질적인 차별점이 됩니다.
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>국제 자격증 안내 브리핑</span>
+    <span>4 / 8</span>
+  </div>
+</div>
+
+<!-- ─── SLIDE 5 : AIPOT ─── -->
+<div class="slide-label">05 / 08</div>
+<div class="slide">
+  <div class="slide-top-bar" style="background: var(--ai-ink);"></div>
+  <div class="cert-body">
+    <div class="cert-sidebar ai">
+      <div>
+        <span class="cert-abbr ai">AIPOT</span>
+        <div class="cert-name" style="margin-top:10px;">AI Professional<br>Operator Test</div>
+      </div>
+      <div>
+        <div class="cert-issuer-label">발급기관</div>
+        <div class="cert-issuer-value">국제 AI 인증기관<br>(글로벌 표준 자격)</div>
+      </div>
+      <div class="cert-stat-block">
+        <div class="cert-stat">
+          <div class="stat-label">주요 적용 분야</div>
+          <div class="stat-value">전 산업 공통 적용</div>
+        </div>
+        <div class="cert-stat">
+          <div class="stat-label">핵심 내용</div>
+          <div class="stat-value">AI 툴 활용·업무 자동화</div>
+        </div>
+        <div class="cert-stat">
+          <div class="stat-label">시장 동향</div>
+          <div class="stat-value">글로벌 기업 우선 채용 중</div>
+        </div>
+      </div>
+    </div>
+    <div class="cert-detail">
+      <div>
+        <div class="section-eyebrow">AIPOT — Certification Detail</div>
+        <div class="section-title" style="font-size:20px;">해외에서의 위상과 활용</div>
+      </div>
+      <div class="detail-section">
+        <h4>국제 인정 현황 및 시장 동향</h4>
+        <div class="detail-grid">
+          <div class="detail-item ai">글로벌 기업의 신입 채용 기준에 <strong>AI 활용 역량 항목이 신설</strong>되는 추세</div>
+          <div class="detail-item ai">Microsoft·Google 등 빅테크 기업이 <strong>AI 리터러시를 기본 역량</strong>으로 요구</div>
+          <div class="detail-item ai">해외 대학원 진학 시 <strong>기술 역량 증빙 자료</strong>로 제출 가능</div>
+          <div class="detail-item ai">전 산업군에 걸쳐 <strong>AI 도구 활용 가능 인재</strong> 수요 빠르게 증가 중</div>
+        </div>
+      </div>
+      <div class="detail-section">
+        <h4>자격증 취득의 실질적 의미</h4>
+        <div class="detail-grid">
+          <div class="detail-item ai">ChatGPT 등 AI 툴 기반 <strong>업무 활용 역량 공식 인증</strong></div>
+          <div class="detail-item ai">직종에 무관하게 <strong>AI 활용 능력을 객관적으로 증명</strong>하는 수단</div>
+          <div class="detail-item ai">유학생 신분에서 <strong>기술 선제 대응 이력</strong>으로 포트폴리오에 기재</div>
+          <div class="detail-item ai">동세대 취업 지원자 대비 <strong>명확한 역량 차별화 포인트</strong></div>
+        </div>
+      </div>
+      <div class="detail-note">
+        AI 활용 자격증은 현재 빠르게 기준이 정착되는 과도기적 단계에 있습니다. <strong>지금 취득하면 해당 분야 초기 인증자로서의 이점</strong>을 누릴 수 있으며, 향후 채용 시장에서 요건화될 가능성이 높습니다.
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>국제 자격증 안내 브리핑</span>
+    <span>5 / 8</span>
+  </div>
+</div>
+
+<!-- ─── SLIDE 6 : 비용 비교 ─── -->
+<div class="slide-label">06 / 08</div>
+<div class="slide">
+  <div class="slide-top-bar"></div>
+  <div class="s2-body">
+    <div>
+      <div class="section-eyebrow">Cost & Timing</div>
+      <div class="section-title">국내 vs 해외 응시 비교</div>
+      <div class="divider"></div>
+    </div>
+    <table class="cert-overview-table">
+      <thead>
+        <tr>
+          <th>자격증</th>
+          <th>국내 응시 비용 (참고)</th>
+          <th>해외 응시 비용 (참고)</th>
+          <th>비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="cert-tag tag-mos">MOS</span>&ensp;Microsoft Office Specialist</td>
+          <td>약 3~5만원 수준</td>
+          <td>약 8~15만원 수준</td>
+          <td>국내 응시 시 약 50~60% 절감</td>
+        </tr>
+        <tr>
+          <td><span class="cert-tag tag-acp">ACP</span>&ensp;Adobe Certified Professional</td>
+          <td>약 5~8만원 수준</td>
+          <td>약 12~18만원 수준</td>
+          <td>국내 응시 시 약 50% 절감</td>
+        </tr>
+        <tr>
+          <td><span class="cert-tag tag-ai">AIPOT</span>&ensp;AI Professional Operator Test</td>
+          <td>기관별 상이</td>
+          <td>기관별 상이</td>
+          <td>국내 준비·응시가 환경적으로 유리</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="overview-note">
+      ※ 위 비용은 <strong>참고 수준</strong>이며 시기·기관·응시 경로에 따라 상이할 수 있습니다.<br>
+      응시 비용 외에도, 해외에서는 <strong>수업 병행으로 인한 집중 학습 환경 확보가 어렵습니다.</strong>
+      귀국 기간은 상대적으로 여유 있는 준비가 가능한 시기입니다.
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>국제 자격증 안내 브리핑</span>
+    <span>6 / 8</span>
+  </div>
+</div>
+
+<!-- ─── SLIDE 7 : 취득 일정 ─── -->
+<div class="slide-label">07 / 08</div>
+<div class="slide">
+  <div class="slide-top-bar"></div>
+  <div class="s7-body">
+    <div>
+      <div class="section-eyebrow">Suggested Schedule</div>
+      <div class="section-title">8주 취득 일정 (안)</div>
+      <div class="divider"></div>
+    </div>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>기간</th>
+          <th>대상 자격증</th>
+          <th>주요 내용</th>
+          <th>진행도</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="schedule-row-1">
+          <td>1~2주차</td>
+          <td><span class="cert-tag tag-mos">MOS</span></td>
+          <td>Word·Excel·PowerPoint 핵심 기능 집중 학습 및 모의 시험</td>
+          <td><div class="progress-bar"><div class="progress-fill fill-mos"></div></div></td>
+        </tr>
+        <tr class="schedule-row-1">
+          <td>3~4주차</td>
+          <td><span class="cert-tag tag-mos">MOS</span></td>
+          <td>MOS 시험 응시 → 취득 완료 / ACP 과목 기초 학습 병행</td>
+          <td><div class="progress-bar"><div class="progress-fill fill-mos" style="width:100%"></div></div></td>
+        </tr>
+        <tr class="schedule-row-2">
+          <td>4~5주차</td>
+          <td><span class="cert-tag tag-acp">ACP</span></td>
+          <td>Photoshop·Illustrator 등 Adobe 툴 집중 실습 및 모의 시험</td>
+          <td><div class="progress-bar"><div class="progress-fill fill-acp"></div></div></td>
+        </tr>
+        <tr class="schedule-row-2">
+          <td>5~6주차</td>
+          <td><span class="cert-tag tag-acp">ACP</span></td>
+          <td>ACP 시험 응시 → 취득 완료 / AIPOT 기초 개념 학습 병행</td>
+          <td><div class="progress-bar"><div class="progress-fill fill-acp" style="width:100%"></div></div></td>
+        </tr>
+        <tr class="schedule-row-3">
+          <td>6~7주차</td>
+          <td><span class="cert-tag tag-ai">AIPOT</span></td>
+          <td>AI 활용 도구 실습 및 시험 범위 집중 학습</td>
+          <td><div class="progress-bar"><div class="progress-fill fill-ai" style="width:60%"></div></div></td>
+        </tr>
+        <tr class="schedule-row-4">
+          <td>8주차</td>
+          <td><span class="cert-tag tag-ai">AIPOT</span></td>
+          <td>AIPOT 시험 응시 → 취득 완료 / 3종 자격증 포트폴리오 정리</td>
+          <td><div class="progress-bar"><div class="progress-fill fill-all"></div></div></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="overview-note">
+      위 일정은 하루 <strong>3~4시간 기준의 권장 일정</strong>입니다. 학생의 기존 IT 활용 수준에 따라 일부 조정될 수 있습니다.
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>국제 자격증 안내 브리핑</span>
+    <span>7 / 8</span>
+  </div>
+</div>
+
+<!-- ─── SLIDE 8 : 정리 ─── -->
+<div class="slide-label">08 / 08</div>
+<div class="slide">
+  <div class="slide-top-bar"></div>
+  <div class="s8-body">
+    <div class="s8-main">
+      <div>
+        <div class="section-eyebrow">Summary</div>
+        <div class="section-title">핵심 요약</div>
+        <div class="divider"></div>
+      </div>
+      <div class="summary-items">
+        <div class="summary-item">
+          <div class="summary-num">1</div>
+          <div class="summary-text">
+            <h4>세 자격증 모두 민간 글로벌 기업(Microsoft·Adobe)이 직접 발급합니다</h4>
+            <p>국가 기관이 아닌 해당 소프트웨어를 개발한 본사가 역량을 직접 검증하는 방식으로, 해외에서 실질적인 신뢰도를 가집니다.</p>
+          </div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-num">2</div>
+          <div class="summary-text">
+            <h4>귀국 기간은 비용과 환경 면에서 취득에 유리한 시점입니다</h4>
+            <p>해외 응시 대비 비용이 낮고, 학업 병행 없이 집중 학습이 가능합니다. 동일한 자격증을 유학 중에 취득하려면 조건이 더 어렵습니다.</p>
+          </div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-num">3</div>
+          <div class="summary-text">
+            <h4>자격증은 취득 후 해외 취업·인턴십·대학원 진학 모두에 적용됩니다</h4>
+            <p>이력서 기재, 포트폴리오 첨부, LinkedIn 프로필 등록 등 다양한 방식으로 활용 가능하며 유효 기간 제한이 없습니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s8-aside">
+      <div class="aside-label">취득 대상 자격증</div>
+      <div class="aside-cert-row">
+        <div class="aside-cert-name"><span class="cert-tag tag-mos" style="margin-right:8px;">MOS</span>Microsoft Office Specialist</div>
+        <div class="aside-cert-desc">사무 업무 역량<br>170개국 이상 통용</div>
+      </div>
+      <div class="aside-cert-row">
+        <div class="aside-cert-name"><span class="cert-tag tag-acp" style="margin-right:8px;">ACP</span>Adobe Certified Professional</div>
+        <div class="aside-cert-desc">크리에이티브 역량<br>미주·유럽 업계 표준</div>
+      </div>
+      <div class="aside-cert-row">
+        <div class="aside-cert-name"><span class="cert-tag tag-ai" style="margin-right:8px;">AIPOT</span>AI Professional Operator Test</div>
+        <div class="aside-cert-desc">AI 활용 역량<br>전 산업 공통 적용</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">
+    <span>국제 자격증 안내 브리핑</span>
+    <span>8 / 8</span>
+  </div>
+</div>
+
+</body>
+</html>
