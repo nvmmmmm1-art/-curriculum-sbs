@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>실내건축 자격증 대비반 — 학생 대면상담 가이드</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    background: #f5f5f5;
+    color: #222;
+    line-height: 1.7;
+    padding: 30px 20px 60px;
+  }
+  .page { max-width: 860px; margin: 0 auto; }
+
+  /* 헤더 */
+  .header {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 32px 36px;
+    border-radius: 14px;
+    margin-bottom: 28px;
+  }
+  .header .badge {
+    font-size: 11px;
+    background: #e94560;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .header h1 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+  .header p { font-size: 13px; color: #aab; }
+
+  /* 공지 박스 */
+  .notice {
+    background: #fff3cd;
+    border-left: 5px solid #f0a500;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    font-size: 13.5px;
+  }
+  .notice strong { color: #c77700; }
+
+  /* 섹션 제목 */
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a1a2e;
+    border-left: 4px solid #e94560;
+    padding-left: 12px;
+    margin-bottom: 14px;
+    margin-top: 36px;
+  }
+
+  /* 자격증 카드 3개 */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .cert-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 18px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-top: 5px solid #ccc;
+  }
+  .cert-card.gisa { border-top-color: #e94560; }
+  .cert-card.san  { border-top-color: #4a90d9; }
+  .cert-card.gi   { border-top-color: #27ae60; }
+
+  .cert-card h2 { font-size: 16px; font-weight: 800; margin-bottom: 12px; }
+  .cert-card.gisa h2 { color: #e94560; }
+  .cert-card.san  h2 { color: #4a90d9; }
+  .cert-card.gi   h2 { color: #27ae60; }
+
+  .cert-card .meta-row {
+    font-size: 12.5px;
+    margin-bottom: 6px;
+    display: flex;
+    gap: 6px;
+  }
+  .cert-card .meta-row .label {
+    color: #888;
+    min-width: 64px;
+    flex-shrink: 0;
+  }
+  .cert-card .meta-row .val { font-weight: 600; color: #333; }
+  .cert-card .tag-list { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+  .cert-card .tag {
+    font-size: 11px;
+    background: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 20px;
+    color: #555;
+  }
+  .duration-badge {
+    display: inline-block;
+    margin-top: 14px;
+    background: #1a1a2e;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+  }
+
+  /* CAD / 스케치업 조건 */
+  .skill-check {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    margin-bottom: 28px;
+  }
+  .skill-check h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #1a1a2e;
+  }
+  .skill-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .skill-table th {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 9px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .skill-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+  .skill-table tr:last-child td { border-bottom: none; }
+  .ok  { color: #27ae60; font-weight: 700; }
+  .no  { color: #e94560; font-weight: 700; }
+  .warn-box {
+    background: #fdecea;
+    border-left: 4px solid #e94560;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: #c0392b;
+  }
+
+  /* 수업 로드맵 */
+  .roadmap {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    margin-bottom: 28px;
+  }
+  .roadmap-track {
+    display: flex;
+    gap: 0;
+    margin-top: 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .rm-step {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    position: relative;
+  }
+  .rm-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    right: -1px;
+    width: 2px;
+    height: 20px;
+    background: #ddd;
+  }
+  .rm-num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: #1a1a2e;
+    color: #fff;
+    font-weight: 800;
+    font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 8px;
+  }
+  .rm-step.theory .rm-num  { background: #7f8c8d; }
+  .rm-step.cad    .rm-num  { background: #2980b9; }
+  .rm-step.skp    .rm-num  { background: #8e44ad; }
+  .rm-step.exam   .rm-num  { background: #e94560; }
+  .rm-step.extra  .rm-num  { background: #f39c12; }
+
+  .rm-title { font-size: 12px; font-weight: 700; color: #333; margin-bottom: 3px; }
+  .rm-sub   { font-size: 11px; color: #888; }
+  .rm-arrow {
+    display: flex; align-items: center; padding-top: 14px;
+    color: #bbb; font-size: 20px; padding-right: 0; padding-left: 0;
+    flex-shrink: 0;
+  }
+
+  /* 월별 세부 내용 */
+  .monthly { margin-bottom: 28px; }
+  .month-block {
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  }
+  .month-header {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 20px;
+    cursor: pointer;
+  }
+  .month-header .num {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px; color: #fff; flex-shrink: 0;
+  }
+  .m1 .num { background: #7f8c8d; }
+  .m2 .num { background: #2980b9; }
+  .m3 .num { background: #8e44ad; }
+  .m4 .num { background: #e94560; }
+  .m5 .num { background: #e94560; }
+  .m-extra .num { background: #f39c12; }
+
+  .month-header .title { font-size: 14px; font-weight: 700; }
+  .month-header .sub   { font-size: 12px; color: #888; margin-left: auto; }
+
+  .month-body {
+    padding: 0 20px 16px;
+    border-top: 1px solid #f0f0f0;
+  }
+  .week-row {
+    display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;
+  }
+  .week-chip {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 12px;
+    flex: 1; min-width: 140px;
+  }
+  .week-chip .wt { font-weight: 700; color: #1a1a2e; margin-bottom: 3px; }
+  .week-chip .wd { color: #555; }
+
+  /* 시험 일정 */
+  .schedule-wrap {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    margin-bottom: 28px;
+  }
+  .sch-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .sch-table th {
+    background: #1a1a2e; color: #fff;
+    padding: 9px 10px; text-align: center; font-weight: 600;
+  }
+  .sch-table td {
+    padding: 9px 10px; border-bottom: 1px solid #eee;
+    text-align: center; vertical-align: middle;
+  }
+  .sch-table tr:last-child td { border-bottom: none; }
+  .sch-table .hl { font-weight: 700; color: #e94560; }
+  .sch-table .start-mark {
+    background: #e8f5e9; color: #27ae60;
+    font-size: 11px; font-weight: 700;
+    padding: 2px 8px; border-radius: 20px;
+    display: inline-block; white-space: nowrap;
+  }
+
+  /* 시작 시점 추천 */
+  .timing-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+    margin-bottom: 28px;
+  }
+  .timing-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-left: 5px solid #e94560;
+  }
+  .timing-card.blue { border-left-color: #4a90d9; }
+  .timing-card .tc-title { font-size: 14px; font-weight: 800; margin-bottom: 8px; color: #1a1a2e; }
+  .timing-card ul { font-size: 12.5px; padding-left: 16px; }
+  .timing-card ul li { margin-bottom: 5px; }
+
+  /* 개인차 안내 */
+  .personal-box {
+    background: #e8eaf6;
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-bottom: 28px;
+  }
+  .personal-box h3 { font-size: 14px; font-weight: 800; color: #283593; margin-bottom: 12px; }
+  .personal-box ul { font-size: 13px; padding-left: 18px; }
+  .personal-box ul li { margin-bottom: 6px; color: #333; }
+  .personal-box .warn { color: #c0392b; font-weight: 700; }
+
+  /* 푸터 */
+  .footer {
+    text-align: center; font-size: 12px; color: #aaa; margin-top: 40px;
+  }
+
+  @media (max-width: 620px) {
+    .cert-grid { grid-template-columns: 1fr; }
+    .timing-grid { grid-template-columns: 1fr; }
+  }
+
+  /* PDF 슬라이드 뷰어 */
+  .pdf-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    margin-bottom: 28px;
+  }
+  .pdf-section .pdf-label {
+    font-size: 11px;
+    background: #1a1a2e;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+  }
+  .pdf-section .pdf-subtitle {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 14px;
+  }
+  .pdf-pages-grid {
+    display: grid;
+    gap: 14px;
+  }
+  .pdf-pages-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+  .pdf-pages-grid.cols-1 { grid-template-columns: 1fr; }
+  .pdf-page-wrap {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fafafa;
+  }
+  .pdf-page-wrap canvas,
+  .pdf-page-wrap img {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
+  .pdf-page-caption {
+    font-size: 11px;
+    color: #888;
+    text-align: center;
+    padding: 6px;
+    background: #f5f5f5;
+    border-top: 1px solid #eee;
+  }
+  .pdf-loading {
+    text-align: center;
+    padding: 30px;
+    color: #aaa;
+    font-size: 13px;
+  }
+  @media (max-width: 620px) {
+    .pdf-pages-grid.cols-2 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="badge">학생 대면상담용</div>
+    <h1>실내건축 자격증 대비반 안내</h1>
+    <p>SBS아카데미컴퓨터아트학원 강남점 &nbsp;|&nbsp; 2026년도 기준 &nbsp;|&nbsp; 이송희 학과장</p>
+  </div>
+
+  <!-- 2026 중요 변경사항 -->
+  <div class="notice">
+    <strong>★ 2026년 1회차부터 중요 변경!</strong><br>
+    기존 <b>수제도(손그림) 방식</b>에서 <b>컴퓨터 활용(AutoCAD + SketchUp) 방식</b>으로 전환되었습니다.<br>
+    이에 따라 CAD와 스케치업 능력이 <b>합격의 핵심 조건</b>이 되었습니다.
+  </div>
+
+  <!-- 자격증 3종 비교 -->
+  <div class="section-title">자격증별 시험 개요 비교</div>
+  <div class="cert-grid">
+
+    <div class="cert-card gisa">
+      <h2>실내건축기사</h2>
+      <div class="meta-row"><span class="label">시험시간</span><span class="val">6시간 30분</span></div>
+      <div class="meta-row"><span class="label">요구도면</span><span class="val">평면도, 내부입면도(2면), 천장도, <b>상세단면도</b>, 실내투시도</span></div>
+      <div class="meta-row"><span class="label">수업일수</span><span class="val">2H × 16일 (자격증반 기준)</span></div>
+      <div class="meta-row"><span class="label">응시자격</span><span class="val">관련학과 졸업 또는 실무경력</span></div>
+      <div class="tag-list">
+        <span class="tag">상세단면도 추가 (★기사만)</span>
+        <span class="tag">난이도 최상</span>
+      </div>
+      <div class="duration-badge">최소 5개월 준비</div>
+    </div>
+
+    <div class="cert-card san">
+      <h2>실내건축산업기사</h2>
+      <div class="meta-row"><span class="label">시험시간</span><span class="val">5시간 30분</span></div>
+      <div class="meta-row"><span class="label">요구도면</span><span class="val">평면도, 내부입면도(2면), 천장도, 실내투시도</span></div>
+      <div class="meta-row"><span class="label">수업일수</span><span class="val">2H × 16일 (자격증반 기준)</span></div>
+      <div class="meta-row"><span class="label">응시자격</span><span class="val">관련학과 졸업 또는 실무경력</span></div>
+      <div class="tag-list">
+        <span class="tag">입면도 2면</span>
+        <span class="tag">중급 난이도</span>
+      </div>
+      <div class="duration-badge">최소 4개월 준비</div>
+    </div>
+
+    <div class="cert-card gi">
+      <h2>실내건축기능사</h2>
+      <div class="meta-row"><span class="label">시험시간</span><span class="val">5시간</span></div>
+      <div class="meta-row"><span class="label">요구도면</span><span class="val">평면도, 내부입면도, 천장도, 실내투시도</span></div>
+      <div class="meta-row"><span class="label">수업일수</span><span class="val">2H × 16일 (자격증반 기준)</span></div>
+      <div class="meta-row"><span class="label">응시자격</span><span class="val">제한 없음</span></div>
+      <div class="tag-list">
+        <span class="tag">입면도 1면</span>
+        <span class="tag">입문 난이도</span>
+      </div>
+      <div class="duration-badge">최소 4개월 준비</div>
+    </div>
+
+  </div>
+
+  <!-- CAD / 스케치업 조건 -->
+  <div class="section-title">필수 선행 능력 — CAD · 스케치업 체크</div>
+  <div class="skill-check">
+    <h3>2026년부터 컴퓨터 방식으로 바뀌었기 때문에, 아래 수준이 안 되면 자격증반 등록 전 반드시 선행 수업을 먼저 받아야 합니다.</h3>
+    <table class="skill-table">
+      <thead>
+        <tr>
+          <th>과목</th>
+          <th>입반 가능 수준 (이 정도는 돼야 함)</th>
+          <th>안 된다면?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>AutoCAD<br>(CAD 1·2 수료 수준)</b></td>
+          <td>
+            <span class="ok">✔</span> 도면층(Layer) 설정 및 관리<br>
+            <span class="ok">✔</span> 벽체·개구부(문·창문) 직접 작도 가능<br>
+            <span class="ok">✔</span> 치수·텍스트·해치 도면에 자유롭게 입력<br>
+            <span class="ok">✔</span> 출력(Plot) 설정 및 PDF 저장 가능<br>
+            <span class="ok">✔</span> 가구·주방기구 블록 활용 가능
+          </td>
+          <td rowspan="2">
+            <span class="no">✘ 바로 자격증반 입반 불가</span><br>
+            → 선행 수업 먼저 이수 후 재상담
+          </td>
+        </tr>
+        <tr>
+          <td><b>SketchUp<br>(Sketchup 1·2 수료 수준)</b></td>
+          <td>
+            <span class="ok">✔</span> CAD 도면 불러와서 3D 공간 모델링 가능<br>
+            <span class="ok">✔</span> 벽체·개구부(창호) 모델링 가능<br>
+            <span class="ok">✔</span> 기본 가구 직접 제작 가능<br>
+            <span class="ok">✔</span> 재질(Material) 매핑 적용 가능<br>
+            <span class="ok">✔</span> 카메라 구도 설정 및 투시도 뷰 추출 가능
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="warn-box">
+      <b>위 조건이 충족되지 않는다면 →</b><br>
+      자격증반 등록 전 <b>CAD 수업(CAD 1·2)</b> 및 <b>스케치업 수업(Sketchup 1·2)</b>을 먼저 수강하고 오세요.<br>
+      선행 수업 없이 자격증반만 수강할 경우, 수업 진도를 따라가기 어렵고 <b>합격 가능성이 크게 떨어집니다.</b><br>
+      ※ 선택 선행과목(스케치 1~3 — 핸드 스케치)은 투시도 완성도를 높이는 데 도움이 되나 필수는 아닙니다.
+    </div>
+  </div>
+
+  <!-- 수업 로드맵 -->
+  <div class="section-title">수업 진행 로드맵</div>
+
+  <!-- 기사 5개월 -->
+  <div class="roadmap" style="margin-bottom:14px;">
+    <div style="font-size:13px; font-weight:700; color:#e94560; margin-bottom:10px;">
+      실내건축기사 — 최소 5개월 (이론 포함)
+    </div>
+    <div class="roadmap-track">
+      <div class="rm-step theory">
+        <div class="rm-num">1</div>
+        <div class="rm-title">1개월</div>
+        <div class="rm-sub">필기 이론</div>
+      </div>
+      <div class="rm-arrow">→</div>
+      <div class="rm-step cad">
+        <div class="rm-num">2</div>
+        <div class="rm-title">2개월</div>
+        <div class="rm-sub">AutoCAD</div>
+      </div>
+      <div class="rm-arrow">→</div>
+      <div class="rm-step skp">
+        <div class="rm-num">3</div>
+        <div class="rm-title">3개월</div>
+        <div class="rm-sub">SketchUp</div>
+      </div>
+      <div class="rm-arrow">→</div>
+      <div class="rm-step exam">
+        <div class="rm-num">4</div>
+        <div class="rm-title">4개월</div>
+        <div class="rm-sub">기출 풀이+피드백</div>
+      </div>
+      <div class="rm-arrow">→</div>
+      <div class="rm-step exam">
+        <div class="rm-num">5</div>
+        <div class="rm-title">5개월</div>
+        <div class="rm-sub">기출 풀이+피드백</div>
+      </div>
+      <div class="rm-arrow">→</div>
+      <div class="rm-step extra">
+        <div class="rm-num">+</div>
+        <div class="rm-title">추가 가능</div>
+        <div class="rm-sub">개인차에 따라</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 산업기사/기능사 4개월 -->
+  <div class="roadmap">
+    <div style="font-size:13px; font-weight:700; color:#4a90d9; margin-bottom:10px;">
+      실내건축산업기사 · 실내건축기능사 — 최소 4개월 (이론 포함)
+    </div>
+    <div class="roadmap-track">
+      <div class="rm-step theory">
+        <div class="rm-num">1</div>
+        <div class="rm-title">1개월</div>
+        <div class="rm-sub">필기 이론</div>
+      </div>
+      <div class="rm-arrow">→</div>
+      <div class="rm-step cad">
+        <div class="rm-num">2</div>
+        <div class="rm-title">2개월</div>
+        <div class="rm-sub">AutoCAD</div>
+      </div>
+      <div class="rm-arrow">→</div>
+      <div class="rm-step skp">
+        <div class="rm-num">3</div>
+        <div class="rm-title">3개월</div>
+        <div class="rm-sub">SketchUp</div>
+      </div>
+      <div class="rm-arrow">→</div>
+      <div class="rm-step exam">
+        <div class="rm-num">4</div>
+        <div class="rm-title">4개월</div>
+        <div class="rm-sub">기출 풀이+피드백</div>
+      </div>
+      <div class="rm-arrow">→</div>
+      <div class="rm-step extra">
+        <div class="rm-num">+</div>
+        <div class="rm-title">추가 가능</div>
+        <div class="rm-sub">개인차에 따라</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 월별 세부 내용 -->
+  <div class="section-title">월별 수업 세부 내용</div>
+  <div class="monthly">
+
+    <div class="month-block m1">
+      <div class="month-header">
+        <div class="num">1</div>
+        <div>
+          <div class="title">1개월차 — 필기 이론 집중</div>
+          <div style="font-size:12px; color:#888;">공통 (기사·산업기사·기능사 모두 해당)</div>
+        </div>
+        <div class="sub">이론 + 기출문제 풀이</div>
+      </div>
+      <div class="month-body">
+        <div class="week-row">
+          <div class="week-chip">
+            <div class="wt">기사 필기과목</div>
+            <div class="wd">실내디자인론 / 색채학 / 인간공학 / 건축재료 / 건축일반 / 건축법규</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">산업기사 필기과목</div>
+            <div class="wd">실내디자인론 / 색채학 / 인간공학 / 건축재료 / 건축법규</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">기능사 필기과목</div>
+            <div class="wd">실내디자인 / 건축재료 / 건축일반</div>
+          </div>
+        </div>
+        <div style="font-size:12px; color:#888; margin-top:10px;">
+          ※ 필기 합격 후 실기(컴퓨터 작업형) 준비를 이어갑니다. 필기 기출 반복 풀이 병행 권장.
+        </div>
+      </div>
+    </div>
+
+    <div class="month-block m2">
+      <div class="month-header">
+        <div class="num">2</div>
+        <div>
+          <div class="title">2개월차 — AutoCAD 실기 기초</div>
+          <div style="font-size:12px; color:#888;">2H × 16일 | 평면도 · 천장도 · 입면도 집중</div>
+        </div>
+        <div class="sub">1주~4주 구성</div>
+      </div>
+      <div class="month-body">
+        <div class="week-row">
+          <div class="week-chip">
+            <div class="wt">1주차 — 기초·개구부·창호</div>
+            <div class="wd">평면도 이해 / 벽체·기둥 / 문·창문 구조 및 작도</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">2주차 — 실별 가구</div>
+            <div class="wd">휴먼스케일 / 주거·주방·수납 가구 치수 및 설계 / 공간 조닝</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">3주차 — 천장도·입면도</div>
+            <div class="wd">조명 종류·기호 / 천장 설비 / 입면 구조 및 가구 표현 / 재료별 해치</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">4주차 — 원룸 설계 종합</div>
+            <div class="wd">평면도·천장도·입면도 통합 설계 / 출력·피드백</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="month-block m3">
+      <div class="month-header">
+        <div class="num">3</div>
+        <div>
+          <div class="title">3개월차 — SketchUp 실기 3D</div>
+          <div style="font-size:12px; color:#888;">2H × 16일 | 투시도(실내투시도) 완성 목표</div>
+        </div>
+        <div class="sub">1주~4주 구성</div>
+      </div>
+      <div class="month-body">
+        <div class="week-row">
+          <div class="week-chip">
+            <div class="wt">1주차 — 기초·공간 구조</div>
+            <div class="wd">인터페이스 / 단순 공간 제작 / 카메라·구도 설정 / 기본 재질 표현</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">2주차 — 실별 가구 모델링</div>
+            <div class="wd">CAD 도면 불러오기 / 창호 모델링 / 주방·수납·거실 가구 제작</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">3주차 — 재질·조명</div>
+            <div class="wd">마감재 선정 / Material mapping / 조명 기구 제작 (펜던트·벽부등·우물천장·매입등)</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">4주차 — 단면도 + 최종 실습</div>
+            <div class="wd">단면도 개념·작도 / 종합 실습 / 프린트 및 최종 피드백</div>
+          </div>
+        </div>
+        <div style="font-size:12px; color:#888; margin-top:10px;">
+          ※ 기사반은 이 달에 <b>상세단면도</b> 표현을 추가로 집중 연습합니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="month-block m4">
+      <div class="month-header">
+        <div class="num">4</div>
+        <div>
+          <div class="title">4개월차 — 기출문제 풀이 + 개별 피드백</div>
+          <div style="font-size:12px; color:#888;">2H × 16일 | 기출 4세트 + 매주 피드백</div>
+        </div>
+        <div class="sub">실전 감각 훈련</div>
+      </div>
+      <div class="month-body">
+        <div class="week-row">
+          <div class="week-chip">
+            <div class="wt">1주차</div>
+            <div class="wd">기출문제 1 — 평면도·입면도(1일) / 천장도·단면도(2일) / 투시도(3일) / 개별 피드백(4일)</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">2주차</div>
+            <div class="wd">기출문제 2 — 동일 패턴 반복 / 개별 피드백</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">3주차</div>
+            <div class="wd">기출문제 3 — 속도 + 완성도 집중 / 개별 피드백</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">4주차</div>
+            <div class="wd">기출문제 4 — 실전 시험 환경 연습 / 개별 피드백</div>
+          </div>
+        </div>
+        <div style="font-size:12px; color:#888; margin-top:10px;">
+          ※ 기능사·산업기사는 이 달이 마지막 달(최소 4개월). 기사는 5개월차로 이어집니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="month-block m5">
+      <div class="month-header">
+        <div class="num">5</div>
+        <div>
+          <div class="title">5개월차 — 기출문제 심화 + 마무리 (기사 전용)</div>
+          <div style="font-size:12px; color:#888;">2H × 16일 | 기출 4세트 + 매주 피드백</div>
+        </div>
+        <div class="sub">기사 전용 심화</div>
+      </div>
+      <div class="month-body">
+        <div class="week-row">
+          <div class="week-chip">
+            <div class="wt">1~4주차</div>
+            <div class="wd">기출문제 5~8 반복 / 상세단면도 집중 완성 / 시험 시간(6시간 30분) 내 전도면 마무리 훈련</div>
+          </div>
+        </div>
+        <div style="font-size:12px; color:#888; margin-top:10px;">
+          ※ 상세단면도는 기사 시험에서만 요구됩니다. 완성도 높이기까지 시간이 추가로 필요할 수 있습니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="month-block m-extra">
+      <div class="month-header">
+        <div class="num">+</div>
+        <div>
+          <div class="title">추가 개월 — 개인 수준에 따라 연장 가능</div>
+          <div style="font-size:12px; color:#888;">모든 종목 해당 | 담당 강사 판단 기준</div>
+        </div>
+        <div class="sub">개인차 발생 구간</div>
+      </div>
+      <div class="month-body">
+        <div style="font-size:13px; margin-top:8px; color:#555;">
+          아래에 해당하면 <b>+1~2개월 이상 추가 준비</b>를 권장합니다.
+        </div>
+        <div class="week-row" style="margin-top:8px;">
+          <div class="week-chip">
+            <div class="wt">CAD 속도가 느린 경우</div>
+            <div class="wd">시험 시간 내 모든 도면 완성을 못하면 불합격. 반복 훈련 추가 필요.</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">SketchUp 투시도 완성도 부족</div>
+            <div class="wd">재질·조명·구도 표현이 시험 기준에 못 미치는 경우.</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">필기 재도전이 필요한 경우</div>
+            <div class="wd">필기 불합격 시 전체 일정이 다음 회차로 미뤄지므로 주의.</div>
+          </div>
+          <div class="week-chip">
+            <div class="wt">기사 상세단면도 어려움</div>
+            <div class="wd">기사 고유 도면으로 난이도 높음. 추가 연습 필요한 경우 많음.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 설명회 자료: 실제 시험 예시 문제 + 샘플 도면 -->
+  <div class="section-title">이렇게 작성해야 합니다 — 실제 시험 예시 및 샘플 도면</div>
+  <div class="pdf-section">
+    <div class="pdf-label">실제 시험지 예시 · CAD 도면 샘플</div>
+    <div class="pdf-subtitle">시험에서 요구하는 도면의 수준과 형식을 미리 확인하세요. 모든 도면은 컴퓨터로 작성 후 PDF로 제출합니다.</div>
+    <div class="pdf-pages-grid cols-2">
+      <div class="pdf-page-wrap">
+        <img src="기출문제 1.png" alt="실제 시험 문제지 예시 — 요구사항">
+        <div class="pdf-page-caption">실제 시험 문제지 예시 ① — 요구사항·제시조건·도면 배치 순서</div>
+      </div>
+      <div class="pdf-page-wrap">
+        <img src="기출문제2.png" alt="실제 시험 문제지 예시 — 수험자 유의사항">
+        <div class="pdf-page-caption">실제 시험 문제지 예시 ② — 수험자 유의사항·평면도 도면 예시</div>
+      </div>
+      <div class="pdf-page-wrap">
+        <img src="캐드도면1.png" alt="샘플 도면 평면도">
+        <div class="pdf-page-caption">샘플 도면 ① 평면도 (CAD 작성, S=1/30)</div>
+      </div>
+      <div class="pdf-page-wrap">
+        <img src="캐드도면2.png" alt="샘플 도면 입면도">
+        <div class="pdf-page-caption">샘플 도면 ② 입면도 D (CAD 작성, S=1/30)</div>
+      </div>
+    </div>
+    <div class="pdf-pages-grid cols-1" style="margin-top:14px;">
+      <div class="pdf-page-wrap">
+        <img src="캐드도면3.png" alt="샘플 도면 천장도">
+        <div class="pdf-page-caption">샘플 도면 ③ 천장도 (CAD 작성, S=1/30) — 조명 기호·설비·범례(LEGEND) 포함</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;">
+      <div style="font-size:12px; font-weight:700; color:#8e44ad; background:#f3eef9; border-left:4px solid #8e44ad; padding:8px 14px; border-radius:6px; margin-bottom:10px;">
+        SketchUp 3D 결과물 — CAD 도면을 바탕으로 3D 공간을 모델링하고 재질·조명·구도를 설정한 최종 실내투시도
+      </div>
+      <div class="pdf-page-wrap">
+        <img src="스케치업1.png" alt="SketchUp 3D 실내투시도 결과물">
+        <div class="pdf-page-caption">샘플 도면 ④ 실내투시도 (SketchUp 3D 렌더링) — 재질·조명·우물천장·구도 완성 예시 / 위 CAD 도면과 동일한 공간의 3D 결과물</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2026 시험일정 -->
+  <div class="section-title">2026년 시험일정 및 준비 시작 시점 (기사 기준)</div>
+  <div class="schedule-wrap">
+    <table class="sch-table">
+      <thead>
+        <tr>
+          <th>구분</th>
+          <th>필기 원서접수</th>
+          <th>필기시험</th>
+          <th>필기 합격발표</th>
+          <th>실기 원서접수</th>
+          <th>실기시험</th>
+          <th>최종합격 발표</th>
+          <th>준비 시작 권장</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="hl">2026 기사 1회</td>
+          <td>1/12~1/15</td>
+          <td>1/30~3/3</td>
+          <td>3/11</td>
+          <td>3/23~3/26</td>
+          <td>4/18~5/6</td>
+          <td>6/12</td>
+          <td><span class="start-mark">전년도 8~9월 시작</span></td>
+        </tr>
+        <tr>
+          <td class="hl">2026 기사 2회</td>
+          <td>4/20~4/23</td>
+          <td>5/9~5/29</td>
+          <td>6/10</td>
+          <td>6/22~6/25</td>
+          <td>7/18~8/5</td>
+          <td>9/11</td>
+          <td><span class="start-mark">1~2월 시작</span></td>
+        </tr>
+        <tr>
+          <td class="hl">2026 기사 3회</td>
+          <td>7/20~7/23</td>
+          <td>8/7~9/1</td>
+          <td>9/9</td>
+          <td>9/21~9/28</td>
+          <td>10/24~11/13</td>
+          <td>12/18</td>
+          <td><span class="start-mark">3~4월 시작</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="font-size:12px; color:#888; margin-top:10px;">
+      ※ 산업기사·기능사 일정은 별도 Q-Net 공고 확인 필요. 위 일정은 기사 기준이며, 산업기사·기능사는 별도 회차 운영됩니다.<br>
+      ※ 준비 시작 시점은 <b>이론(필기) 포함 최소 준비기간</b> 기준입니다. CAD·스케치업 선행 수업 기간은 별도 추가됩니다.
+    </div>
+  </div>
+
+  <!-- 시작 시점 추천 -->
+  <div class="section-title">목표 시험 회차별 수강 시작 권장 시기</div>
+  <div class="timing-grid">
+    <div class="timing-card">
+      <div class="tc-title">실내건축기사 — 최소 5개월</div>
+      <ul>
+        <li><b>1회(4~5월 실기)</b> → 전년도 11월~12월 수강 시작</li>
+        <li><b>2회(7~8월 실기)</b> → 당해 2~3월 수강 시작</li>
+        <li><b>3회(10~11월 실기)</b> → 당해 5~6월 수강 시작</li>
+        <li style="color:#c0392b;">CAD·스케치업 선행 필요 시 +1~2개월 추가</li>
+      </ul>
+    </div>
+    <div class="timing-card blue">
+      <div class="tc-title">실내건축산업기사·기능사 — 최소 4개월</div>
+      <ul>
+        <li><b>상반기 실기 목표</b> → 전년도 12월~당해 1월 수강 시작</li>
+        <li><b>하반기 실기 목표</b> → 당해 4~5월 수강 시작</li>
+        <li style="color:#c0392b;">CAD·스케치업 선행 필요 시 +1~2개월 추가</li>
+        <li>기능사는 응시 제한이 없어 빠른 도전 가능</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 개인차 안내 -->
+  <div class="personal-box">
+    <h3>수강 전 반드시 확인해야 할 사항</h3>
+    <ul>
+      <li>기사 기준 5개월(산업기사·기능사 4개월)은 CAD·스케치업 선행 능력이 <b>충분히 갖춰진 경우</b>의 최소 기간입니다.</li>
+      <li class="warn">CAD 또는 스케치업 수준이 부족하면 선행 수업 기간이 추가로 필요합니다. (보통 1~3개월 선행)</li>
+      <li>컴퓨터 작업 속도, 공간 이해력, 학습 시간 투자량에 따라 <b>개인차가 크게 납니다.</b></li>
+      <li>기사는 <b>상세단면도</b>가 추가되므로, 처음 도전하는 분은 6~7개월 준비를 기준으로 생각하는 것이 안전합니다.</li>
+      <li>필기 시험에서 불합격하면 다음 회차로 전체 일정이 밀리므로, <b>필기도 충분히 준비</b>해야 합니다.</li>
+      <li>기출문제 풀이 단계에서 속도·완성도가 기준에 못 미치면 <b>추가 연장 수강</b>을 적극 권장합니다.</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    SBS아카데미컴퓨터아트학원 강남점 &nbsp;|&nbsp; 2026년도 실내건축 자격증 대비반 학생 대면상담 자료<br>
+    작성: 이송희 학과장 &nbsp;|&nbsp; 내용 변경 시 별도 공지
+  </div>
+
+</div>
+
+</body>
+</html>
